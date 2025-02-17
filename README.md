@@ -16,18 +16,17 @@ ps: since this is running locally, the llm might be a little stupid, if you like
 
 
 
-step1:  
-pip install -r requirements.txt
+step1:  pip install -r requirements.txt
 
 
-step2:
-playwright install
+
+step2:  playwright install
 
 
-step3:
-curl -fsSL https://ollama.com/install.sh | sh
+
+step3:   curl -fsSL https://ollama.com/install.sh | sh
 
 
-step4:
-xcode-select --install
+
+step4:   xcode-select --install
 
