@@ -16,6 +16,10 @@ ps: since this is running locally, the llm might be a little stupid, if you like
 
 step1:    chmod +x install.sh
 
-step2:   bash install.sh
+step2:     bash install.sh
+
+
+
+to make your life easier, go to https://github.com/keeeevinShen/url_to_summary/edit/main/README.md#:~:text=get_transcript_summary  
 
 
