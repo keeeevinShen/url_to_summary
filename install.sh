@@ -1,11 +1,13 @@
 #!/bin/bash
 
-echo "🚀 Starting Full Installation..."
+echo "🚀 Starting Installation for Canvas Lecture Summarizer..."
 
-# 1️⃣ Step 1: Create Virtual Environment
+# 1️⃣ Step 1: Set Up Virtual Environment
 if [ ! -d "env" ]; then
     echo "🐍 Creating a virtual environment..."
     python3 -m venv env
+else
+    echo "🔁 Virtual environment already exists."
 fi
 
 # Activate the virtual environment
@@ -29,23 +31,15 @@ else
     echo "✅ Ollama is already installed."
 fi
 
-# 5️⃣ Step 5: Download the LLM Model (llama3)
+# 5️⃣ Step 5: Download LLM Model (llama3)
 echo "🧠 Downloading the LLM model (llama3)..."
 ollama pull llama3
 
-# 6️⃣ Step 6: Install macOS Command-Line Tools (if needed)
-if ! xcode-select -p &> /dev/null; then
-    echo "🛠️ Installing macOS Command-Line Tools..."
-    xcode-select --install
-else
-    echo "✅ Command-line tools already installed."
-fi
+# 6️⃣ Step 6: Run the Python Script
+echo "🚀 Launching the Lecture Summarizer..."
+python3 app.py
 
-# 7️⃣ Step 7: Run the Application
-echo "🚀 Installation Complete! Launching the app..."
-open dist/app.app
-
-echo "🎉 Done! You can now run the app directly from your Applications folder."
-
-# Deactivate virtual environment (optional)
+# 7️⃣ Deactivate virtual environment after completion
 deactivate
+
+echo "🎉 Installation complete!"
