@@ -2,7 +2,11 @@ from playwright.sync_api import sync_playwright
 import requests
 from datetime import datetime
 import os
+import re
 from dotenv import load_dotenv
+from langchain_core.prompts import PromptTemplate 
+from langchain_ollama import ChatOllama
+
 
 load_dotenv()
 unique_name = os.environ.get("UNIQUE_NAME")
@@ -21,22 +25,14 @@ def get_transcript_url(url):
         print(f"🔍 Visiting: {url}")
         page.goto(url)
         page.wait_for_load_state("networkidle")
+        if page.locator('input[id="username"]').count() > 0:    #if it needs login 
+            input_box1 = page.locator('input[id="username"]')
+            input_box1.type("haoshen")
+            input_box2 = page.locator('input[id="password"]')
+            input_box2.type("Sh392899563****")
+            page.keyboard.press("Enter")
 
-        input_box1 = page.locator('input[id="username"]')
-        input_box1.type("haoshen")
-        input_box2 = page.locator('input[id="password"]')
-        input_box2.type("Sh392899563****")
-
-
-        page.keyboard.press("Enter")
-
-        # Save the fully-rendered HTML for debugging
-        """html_content = page.content()
-        with open("full_rendered.html", "w", encoding="utf-8") as f:
-            f.write(html_content)"""
-
-        print("✅ Full rendered HTML saved to full_rendered.html")
-
+        
         # Locate the <track> element with kind="captions"
         try:
             track_element = page.locator('track[kind="captions"]').first
@@ -48,21 +44,19 @@ def get_transcript_url(url):
         
                 transcript_url = f"https://leccap.engin.umich.edu{transcript_url}"
 
-                print(f"🎯 Transcript URL found: {transcript_url}")
+                print(f" Transcript URL found: {transcript_url}")
                 return transcript_url
 
             else:
-                print("❌ Transcript URL not found.")
+                print(" Transcript URL not found.")
 
         except Exception as e:
-            print(f"❌ Failed to find the transcript URL: {e}")
+            print(f" Failed to find the transcript URL: {e}")
             browser.close()
 
 
 
-# Run the function
-lecture_url = input("🔗 Enter the Canvas lecture URL: ").strip()
-trans_url = get_transcript_url(lecture_url)
+
 
 
 #repeat what we do on last step to get the content of the transcript
@@ -100,31 +94,45 @@ def open_trans_url(url):
                 
 
             else:
-                print("❌ Transcript URL not found.")
+                print(" Transcript URL not found.")
 
         except Exception as e:
-            print(f"❌ Failed to find the transcript URL: {e}")
+            print(f" Failed to find the transcript URL: {e}")
             browser.close()
 
-#now lets do the clean data part, remove the timestamps 
-import re
-transcript_raw = open_trans_url(trans_url)
-cleaned_transcript = re.sub(r'\d{2}:\d{2}:\d{2}\.\d{3} --> \d{2}:\d{2}:\d{2}\.\d{3}', '', transcript_raw)
+
+lecture_url = input("🔗 Enter the Canvas lecture URL: ").strip()
+trans_url = get_transcript_url(lecture_url) #get the transcript url
+transcript_raw = open_trans_url(trans_url) #get the raw data
+
 #then clean the data using: content = re.sub(r'\d{2}:\d{2}:\d{2}\.\d{3} --> \d{2}:\d{2}:\d{2}\.\d{3}', '', content)
+cleaned_transcript = re.sub(r'\d{2}:\d{2}:\d{2}\.\d{3} --> \d{2}:\d{2}:\d{2}\.\d{3}', '', transcript_raw)
 
 #after getting the cleaned data, we can save it to a file
-"""with open("cleaned_transcript.txt", "w", encoding="utf-8") as f:
-    f.write(cleaned_transcript)"""
-
-from langchain_core.prompts import PromptTemplate 
-
-from langchain_ollama import ChatOllama
+with open("cleaned_transcript.txt", "w", encoding="utf-8") as f:
+    f.write(cleaned_transcript)
 
 
 if __name__ == '__main__':
+
+
+    lecture_url = input("🔗 Enter the Canvas lecture URL: ").strip()
+    trans_url = get_transcript_url(lecture_url) #get the transcript url
+    transcript_raw = open_trans_url(trans_url) #get the raw data
+
+#then clean the data using: content = re.sub(r'\d{2}:\d{2}:\d{2}\.\d{3} --> \d{2}:\d{2}:\d{2}\.\d{3}', '', content)
+    cleaned_transcript = re.sub(r'\d{2}:\d{2}:\d{2}\.\d{3} --> \d{2}:\d{2}:\d{2}\.\d{3}', '', transcript_raw)
+
+#after getting the cleaned data, we can save it to a file
+    with open("cleaned_transcript.txt", "w", encoding="utf-8") as f:
+        f.write(cleaned_transcript)
+        
     print("Hello, langchain!")
     information = cleaned_transcript
-    summary_template = """
+
+    user_input = input("your prompt (press enter to use default prompt): ")
+    #use user_input otherwise just get the summary
+    summary_template = user_input if user_input else """
     given the information {information}  I want you to give me the summary of the information"""
 
     input_template  = PromptTemplate(input_variables=["information"], template = summary_template)
