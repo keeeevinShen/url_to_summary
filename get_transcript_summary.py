@@ -1,6 +1,12 @@
 from playwright.sync_api import sync_playwright
 import requests
 from datetime import datetime
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+unique_name = os.environ.get("UNIQUE_NAME")
+password = os.environ.get("PASSWORD")
 
 def get_transcript_url(url):
     """
@@ -115,8 +121,6 @@ from langchain_core.prompts import PromptTemplate
 from langchain_ollama import ChatOllama
 
 
-
-from dotenv import load_dotenv
 if __name__ == '__main__':
     print("Hello, langchain!")
     information = cleaned_transcript
