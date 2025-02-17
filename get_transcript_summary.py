@@ -131,8 +131,12 @@ if __name__ == '__main__':
 
     user_input = input("your prompt (press enter to use default prompt): ")
     #use user_input otherwise just get the summary
-    summary_template = user_input if user_input else """
-    given the information {information}  I want you to give me the summary of the information"""
+
+    if user_input:
+        summary_template = f"for this {information}: {user_input }"
+    else:
+        summary_template = """
+        given the information {information}  I want you to give me the summary of the information"""
 
     input_template  = PromptTemplate(input_variables=["information"], template = summary_template)
 
