@@ -24,12 +24,15 @@ def get_transcript_url(url):
         print(f"🔍 Visiting: {url}")
         page.goto(url)
         page.wait_for_load_state("networkidle")
-        if page.locator('input[id="username"]').count() > 0:    #if it needs login 
+        try:
+            page.wait_for_selector('input[id="username"]', timeout=4000)    #if it needs login 
             input_box1 = page.locator('input[id="username"]')
             input_box1.type("haoshen")
             input_box2 = page.locator('input[id="password"]')
             input_box2.type("Sh392899563****")
             page.keyboard.press("Enter")
+        except:
+            print("no login require, keep going")
 
         
         # Locate the <track> element with kind="captions"
@@ -70,11 +73,14 @@ def open_trans_url(url):
         print(f"🔍 Visiting: {url}")
         page.goto(url)
         page.wait_for_load_state("networkidle")
-        if page.locator('input[id="username"]').count() > 0:
+        try:
+            page.wait_for_selector('input[id="username"]', timeout=4000)
             input_box1 = page.locator('input[id="username"]')
             input_box1.type("haoshen")
             input_box2 = page.locator('input[id="password"]')
             input_box2.type("Sh392899563****")
+        except:
+            print("no login require, keep going")
 
 
         page.keyboard.press("Enter")
@@ -100,13 +106,6 @@ def open_trans_url(url):
             print(f" Failed to find the transcript URL: {e}")
             browser.close()
 
-
-lecture_url = input("🔗 Enter the Canvas lecture URL: ").strip()
-trans_url = get_transcript_url(lecture_url) #get the transcript url
-transcript_raw = open_trans_url(trans_url) #get the raw data
-
-#then clean the data using: content = re.sub(r'\d{2}:\d{2}:\d{2}\.\d{3} --> \d{2}:\d{2}:\d{2}\.\d{3}', '', content)
-cleaned_transcript = re.sub(r'\d{2}:\d{2}:\d{2}\.\d{3} --> \d{2}:\d{2}:\d{2}\.\d{3}', '', transcript_raw)
 
 #after getting the cleaned data, we can save it to a file
 with open("cleaned_transcript.txt", "w", encoding="utf-8") as f:
