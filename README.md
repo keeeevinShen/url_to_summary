@@ -20,6 +20,6 @@ step2:     bash install.sh
 
 
 
-to make your life easier, run config.py and input your UM-unique name and password. 
+to make your life easier, go to .env file and input your UM-unique name and password. 
 
 
