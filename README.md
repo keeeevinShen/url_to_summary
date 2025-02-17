@@ -14,23 +14,8 @@ history class: " Weimar Republic is a period of time ....." , POV: "yeah yeah ri
 ps: since this is running locally, the llm might be a little stupid, if you like, you could choose to get the text file and ask the webbase chatgpt. 
 
 
+step1:    chmod +x install.sh
 
+step2:   bash install.sh
 
-step1:  pip install -r requirements.txt
-
-
-
-step2:  playwright install
-
-
-
-step3:   curl -fsSL https://ollama.com/install.sh | sh
-
-
-
-step4:   xcode-select --install
-
-
-
-step5:    ollama run llama3.1
 
