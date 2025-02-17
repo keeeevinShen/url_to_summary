@@ -11,7 +11,7 @@ history class: " Weimar Republic is a period of time ....." , POV: "yeah yeah ri
 
 
 
-ps: since this is running locally, the llm might be a little stupid, if you like, you could choose to get the text file and ask the webbase chatgpt. 
+ps: since this is running locally, the llm might be a little stupid, if you like, you could choose to get the text file and ask the webbase chatgpt. or add api key into the .env file to use (Chatgpt,Claude ... ) 
 
 
 step1:    chmod +x install.sh
