@@ -70,10 +70,11 @@ def open_trans_url(url):
         print(f"🔍 Visiting: {url}")
         page.goto(url)
         page.wait_for_load_state("networkidle")
-        input_box1 = page.locator('input[id="username"]')
-        input_box1.type("haoshen")
-        input_box2 = page.locator('input[id="password"]')
-        input_box2.type("Sh392899563****")
+        if page.locator('input[id="username"]').count() > 0:
+            input_box1 = page.locator('input[id="username"]')
+            input_box1.type("haoshen")
+            input_box2 = page.locator('input[id="password"]')
+            input_box2.type("Sh392899563****")
 
 
         page.keyboard.press("Enter")
