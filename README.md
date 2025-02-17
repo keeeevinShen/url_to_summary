@@ -30,3 +30,7 @@ step3:   curl -fsSL https://ollama.com/install.sh | sh
 
 step4:   xcode-select --install
 
+
+
+step5:    ollama run llama3.1
+
