@@ -1,6 +1,5 @@
 from playwright.sync_api import sync_playwright
 import requests
-from datetime import datetime
 import os
 import re
 from dotenv import load_dotenv
