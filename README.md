@@ -20,6 +20,6 @@ step2:     bash install.sh
 
 
 
-to make your life easier, go to https://github.com/keeeevinShen/url_to_summary/edit/main/README.md#:~:text=get_transcript_summary  
+to make your life easier, run config.py and input your UM-unique name and password. 
 
 
