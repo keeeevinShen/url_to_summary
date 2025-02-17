@@ -27,9 +27,9 @@ def get_transcript_url(url):
         try:
             page.wait_for_selector('input[id="username"]', timeout=4000)    #if it needs login 
             input_box1 = page.locator('input[id="username"]')
-            input_box1.type("haoshen")
+            input_box1.type("unique_name")
             input_box2 = page.locator('input[id="password"]')
-            input_box2.type("Sh392899563****")
+            input_box2.type("password")
             page.keyboard.press("Enter")
         except:
             print("no login require, keep going")
@@ -76,9 +76,9 @@ def open_trans_url(url):
         try:
             page.wait_for_selector('input[id="username"]', timeout=4000)
             input_box1 = page.locator('input[id="username"]')
-            input_box1.type("haoshen")
+            input_box1.type("unique_name")
             input_box2 = page.locator('input[id="password"]')
-            input_box2.type("Sh392899563****")
+            input_box2.type("password")
         except:
             print("no login require, keep going")
 
