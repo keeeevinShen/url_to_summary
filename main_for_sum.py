@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import END
 import threading
-from get_video_url import get_video_url
+
 from get_transcript_summary import get_transcript_url, open_trans_url, ask_llama
 import re
 
