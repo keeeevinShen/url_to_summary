@@ -70,6 +70,9 @@ then you can just run the main_for_sum.py file ( using ide or simply run in term
 to run in terminal:
 
 
+source env/bin/activate
+
+
 python3 main_for_sum.py
 
 
