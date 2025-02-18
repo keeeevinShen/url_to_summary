@@ -19,6 +19,8 @@ playwright install
 echo " Downloading the LLM model (llama3)..."
 ollama run llama3.1
 
+brew install python-tk
+
 # 7️⃣ Deactivate virtual environment after completion
 deactivate
 echo " Installation complete!"
