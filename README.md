@@ -1,27 +1,47 @@
-Ask llama with your lecture url(for U-M student)
+Ask llama with your lecture url(for U-M student)(only works when your lecture have trnscript provided)
 
 
 
 #use bash shell
+
+Part1: if you are alreay using bash shell and have homebrew installed, skip and go to Part2
+
+1:#switch to bash
+
+
 chsh -s /bin/bash 
 
-#download homebrew
+
+2:#download homebrew
+
+
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 
-#add to PATH
+3:#add to PATH
+
+
 echo 'PATH="/usr/local/bin:$PATH"' >> ~/.bash_profile   
 
 
-Go to browser and download Ollama.  then add to your application. then open it. and install ollama. 
 
+
+Part2:
+
+
+Go to browser and download Ollama.  then add to your application. then open it. and install ollama. 
 
 
 step1:    chmod +x install.sh
 
 step2:     bash install.sh
 
-step3:      open vscode and run the main_for_sum.py 
+
+then you can just run the main_for_sum.py file ( using ide or simply run in terminal)
+
+to run in terminal:
+
+python3 main_for_sum.py
 
 
 
