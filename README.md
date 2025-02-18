@@ -9,7 +9,10 @@ Part1: if you are alreay using bash shell and have homebrew installed, skip and 
 1:#switch to bash
 
 
-chsh -s /bin/bash 
+chsh -s /bin/bash     
+
+
+and close and reopen terminal
 
 
 2:#download homebrew
