@@ -1,15 +1,16 @@
 Ask llama with your lecture url(for U-M student)
 
+
+
+#use bash shell
 chsh -s /bin/bash 
 
-
+#download homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.bash_profile
-
-
-eval "$(/opt/homebrew/bin/brew shellenv)"
+#add to PATH
+echo 'PATH="/usr/local/bin:$PATH"' >> ~/.bash_profile   
 
 
 
