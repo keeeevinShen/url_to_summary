@@ -1,8 +1,14 @@
 Ask llama with your lecture url(for U-M student)
 
 chsh -s /bin/bash 
+
+
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+
 echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.bash_profile
+
+
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 
