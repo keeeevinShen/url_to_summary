@@ -21,10 +21,14 @@ and close and reopen terminal
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 
-3:#add to PATH
+
+Now carefully look up the "Next step" secction printed out on your terminal. And copy paste the command to add brew to your PATH. 
 
 
-echo 'PATH="/usr/local/bin:$PATH"' >> ~/.bash_profile   
+
+
+
+
 
 
 
