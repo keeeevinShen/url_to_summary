@@ -21,6 +21,7 @@ ollama run llama3.1
 
 brew install python-tk
 
+
 # 7️⃣ Deactivate virtual environment after completion
 deactivate
 echo " Installation complete!"
