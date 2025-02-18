@@ -15,10 +15,6 @@ pip install -r requirements.txt
 echo " Installing Playwright browsers..."
 playwright install
 
-# 4️⃣ Step 4: Install Ollama
-echo " Installing Ollama..."
-curl -fsSL https://ollama.com/install.sh | sh
-
 # 5️⃣ Step 5: Download LLM Model (llama3)
 echo " Downloading the LLM model (llama3)..."
 ollama run llama3.1
