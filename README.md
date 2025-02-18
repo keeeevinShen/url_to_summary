@@ -13,6 +13,9 @@ chsh -s /bin/bash
 echo 'PATH="/usr/local/bin:$PATH"' >> ~/.bash_profile   
 
 
+Go to browser and download Ollama.  then add to your application. then open it. and install ollama. 
+
+
 
 step1:    chmod +x install.sh
 
