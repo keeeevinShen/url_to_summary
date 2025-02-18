@@ -127,37 +127,5 @@ def ask_llama(transcript, user_input= "give me the summary of this info"):
     res = chain.invoke(input={"information":information})
     return res.content
 
-# if __name__ == '__main__':
 
-
-#     lecture_url = input("🔗 Enter the Canvas lecture URL: ").strip()
-#     trans_url = get_transcript_url(lecture_url) #get the transcript url
-#     transcript_raw = open_trans_url(trans_url) #get the raw data
-
-# #then clean the data using: content = re.sub(r'\d{2}:\d{2}:\d{2}\.\d{3} --> \d{2}:\d{2}:\d{2}\.\d{3}', '', content)
-#     cleaned_transcript = re.sub(r'\d{2}:\d{2}:\d{2}\.\d{3} --> \d{2}:\d{2}:\d{2}\.\d{3}', '', transcript_raw)
-
-# #after getting the cleaned data, we can save it to a file
-#     with open("cleaned_transcript.txt", "w", encoding="utf-8") as f:
-#         f.write(cleaned_transcript)
-        
-#     print("Hello, langchain!")
-#     information = cleaned_transcript
-
-#     user_input = input("your prompt (press enter to use default prompt): ")
-#     #use user_input otherwise just get the summary
-#     if user_input:
-#         summary_template = f"for this {information}: {user_input }"
-#     else:
-#         summary_template = """
-#         given the information {information}  I want you to give me the summary of the information"""
-
-#     input_template  = PromptTemplate(input_variables=["information"], template = summary_template)
-
- 
-#     llm_ollama = ChatOllama(model="llama3.2",temperature=0)
-  
-#     chain = input_template | llm_ollama 
-#     res = chain.invoke(input={"information":information})
-#     print(res.content)
     
