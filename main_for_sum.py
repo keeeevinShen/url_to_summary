@@ -14,7 +14,7 @@ def run_get_summary():
         user_prompt = "give me the summary"
 
     if not lecture_url:
-        update_output("⚠️ Please enter a valid URL.")
+        update_output(" Please enter a valid URL.")
         return
 
     update_output(" Fetching transcript URL, please wait...")
@@ -44,7 +44,7 @@ def run_get_summary():
 def run_get_transcript():
     lecture_url = textbox.get("1.0", END).strip()
     if not lecture_url:
-        update_output("⚠️ Please enter a valid URL.")
+        update_output(" Please enter a valid URL.")
         return
     
     update_output(" Fetching transcript URL, please wait...")
@@ -71,7 +71,7 @@ def run_get_video_url():
     """Retrieve the video URL and display it."""
     lecture_url = textbox.get("1.0", END).strip()  # Get URL from textbox
     if not lecture_url:
-        update_output("⚠️ Please enter a valid URL.")
+        update_output("Please enter a valid URL.")
         return
 
     update_output("🔍 Fetching video URL, please wait...")
@@ -84,9 +84,9 @@ def fetch_and_display_video_url(lecture_url):
     """Fetch the video URL and update the output textbox."""
     video_url = get_video_url(lecture_url)
     if video_url:
-        update_output(f"🎯 Video URL:\n{video_url}")
+        update_output(f" Video URL:\n{video_url}")
     else:
-        update_output("⚠️ Video URL not found.")
+        update_output(" Video URL not found.")
 
 #for mystery word
 def run_get_mystery_word():
