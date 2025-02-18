@@ -121,7 +121,7 @@ def ask_llama(transcript, user_input= "give me the summary of this info"):
     input_template  = PromptTemplate(input_variables=["information"], template = summary_template)
 
  
-    llm_ollama = ChatOllama(model="llama3.2",temperature=0)
+    llm_ollama = ChatOllama(model="llama3.1",temperature=0)
   
     chain = input_template | llm_ollama 
     res = chain.invoke(input={"information":information})
