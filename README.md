@@ -35,18 +35,40 @@ Now carefully look up the "Next step" secction printed out on your terminal. And
 
 Part2:
 
+first: 
+
 
 Go to browser and download Ollama.  then add to your application. then open it. and install ollama. 
 
 
-step1:    chmod +x install.sh
+Second:(head to the project folder and run these two command)   
 
-step2:     bash install.sh
+
+To go to the project folder, run: 
+
+
+cd Downloads/  
+
+
+and: 
+
+cd url_to_summary-main/
+
+
+
+Now download all the dependencies, run: 
+
+    
+chmod +x install.sh
+
+
+bash install.sh
 
 
 then you can just run the main_for_sum.py file ( using ide or simply run in terminal)
 
 to run in terminal:
+
 
 python3 main_for_sum.py
 
