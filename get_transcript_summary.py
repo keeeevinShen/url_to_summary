@@ -16,7 +16,7 @@ def get_transcript_url(url):
     """
     with sync_playwright() as p:
         # Open Chrome with Playwright
-        browser = p.chromium.launch(headless=False, executable_path="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
+        browser = p.chromium.launch(headless=False)
         page = browser.new_page()
         
         # Navigate to the Canvas lecture page
@@ -65,7 +65,7 @@ def get_transcript_url(url):
 def open_trans_url(url):
     with sync_playwright() as p:
         # Open Chrome with Playwright
-        browser = p.chromium.launch(headless=False, executable_path="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
+        browser = p.chromium.launch(headless=False)
         page = browser.new_page()
         
         # Navigate to the Canvas lecture page
