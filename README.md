@@ -1,5 +1,6 @@
-Ask llama with your lecture url(for U-M student)(only works when your lecture have trnscript provided)
+Ask llama with your lecture url(for U-M student)(only works when your lecture have trnscript provided) 
 
+This is the guide for MAC. 
 
 
 #use bash shell
