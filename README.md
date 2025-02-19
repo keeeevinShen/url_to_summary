@@ -56,7 +56,7 @@ cd url_to_summary-main/
 
 
 
-Now download all the dependencies, run: 
+Now download all the dependencies, run: (please make sure your python is updated to the lastest version!!!!) (brew upgrade python)
 
     
 chmod +x install.sh
